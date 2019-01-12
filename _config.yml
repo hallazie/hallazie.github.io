@@ -70,8 +70,8 @@ netease_comment: false
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "on day as a lion"
-
+sidebar-about-description: "one day as a lion"
+sidebar-avatar: /img/favicon.png 
 
 
 
