@@ -6,7 +6,7 @@ email: hallazie@outlook.com
 description: "用数学的方式做眼前的问题，却得到一只签的解"
 keyword: ""
 url: "https://hallazie.github.io"           # your host, for absolute URL
-baseurl: "/blog"         # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: "https://hallazie.github.io"         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
