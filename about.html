@@ -5,11 +5,6 @@ description: "用数学的方式做眼前的问题，却得到一只签的解"
 header-img: "img/about-bg.jpg"
 ---
 
-<!-- Language Selector -->
-<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
-    <option value="0" selected> 中文 Chinese </option>
-    <option value="1"> 英语 English </option>
-</select>
 
 <!-- Chinese Version -->
 <div class="zh post-container">
@@ -18,34 +13,6 @@ header-img: "img/about-bg.jpg"
     </blockquote>
     blablablablablablala
 </div>
-
-<!-- English Version -->
-<div class="en post-container">
-    <blockquote>
-        rage against the machine
-    </blockquote>
-
-    <p>
-        blablablablabla
-    </p>
-</div>
-
-<!-- Handle Language Change -->
-<script type="text/javascript">
-    var $zh = document.querySelector(".zh");
-    var $en = document.querySelector(".en");
-    function onLanChange(index){
-        if(index == 0){
-            $zh.style.display = "block";
-            $en.style.display = "none";
-        }else{
-            $en.style.display = "block";
-            $zh.style.display = "none";
-        }
-    }
-    onLanChange(0);
-</script>
-
 
 
 {% if site.duoshuo_username %}
