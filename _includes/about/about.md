@@ -4,6 +4,6 @@ Hi，我是肖尚华，一名初级码畜-炼丹学徒，18年从川大计院硕
 
 有一篇会议和两篇自己的垃圾manuscript，投的trans on cybernetics，结果还没投中就毕业了...懒得再修改灌水，挂到arxiv聊以自慰。
 
-* Learning Saliency Prediction From Sparse Fixation Pixel Map，Shanghua Xiao，[arXiv:1809.00644v1](https://arxiv.org/abs/1809.00644)
-* Light-weighted Saliency Detection with Distinctively Lower Memory Cost and Model Size，Shanghua Xiao，[arXiv:1809.00644v1](https://arxiv.org/abs/1809.00644)
-* Adaptive Sampling for GPU-based 3-D Volume Rendering，Chunhan Zhang，Hao Yin and Shanghua Xiao，ISICDM 2018，EI
+* Learning Saliency Prediction From Sparse Fixation Pixel Map, *Shanghua Xiao*, [arXiv:1809.00644v1](https://arxiv.org/abs/1809.00644)
+* Light-weighted Saliency Detection with Distinctively Lower Memory Cost and Model Size, *Shanghua Xiao*, [arXiv:1809.00644v1](https://arxiv.org/abs/1809.00644)
+* Chunhan Zhang, Hao Yin, and *Shanghua Xiao*. 2018. Adaptive Sampling for GPU-based 3-D Volume Rendering. In Proceedings of the 2nd International Symposium on Image Computing and Digital Medicine (ISICDM 2018). ACM, New York, NY, USA, 27-31. DOI: https://doi.org/10.1145/3285996.3286002
