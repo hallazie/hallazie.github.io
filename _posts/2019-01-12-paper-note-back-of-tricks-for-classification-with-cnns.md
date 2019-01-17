@@ -11,7 +11,7 @@ tags:
 > 通过这篇文章，可以系统化的掌握一些调优方式，同时可以将整个模型训练的过程及其中涉及的一些细节进行系统化的总结。
 
 ### Abstract
-当前 image classification 领域的进步很大程度来自于对**训练过程的优化**，如`data argumentation`和`optimization`方面的改进。这篇文章对这些方法进行了测试并通过 ablation 对他们对于模型最终表现的影响进行了 empirically evaluation。通过结合这些方法，ResNet-50的 top1 准确率得到了提高，而更高准确率的分类模型在迁移到其他 domain 后也有了更好的表现。
+当前image classification领域的进步很大程度来自于对**训练过程的优化**，如`data argumentation`和`optimization`方面的改进。这篇文章对这些方法进行了测试并通过ablation对他们对于模型最终表现的影响进行了 empirically evaluation。通过结合这些方法，ResNet-50的top1准确率得到了提高，而更高准确率的分类模型在迁移到其他 domain 后也有了更好的表现。
 
 文章内容：
 * baseline training procedure
@@ -21,9 +21,9 @@ tags:
 
 ### Baseline Procedure
 
-训练：
-1. 随机选择一张图像，编码为[0., 255.]的 float32 矩阵；
-2. 随机 crop 出一个 aspect ratio 从[3/4, 4/3]中随机采样，面积从[8%, 100%]中随机采样的矩形，并缩放到224×224大小；
+训练 ResNet-50：
+1. 随机选择一张图像，编码为[0., 255.]的float32矩阵；
+2. 随机crop出一个aspect ratio从[3/4, 4/3]中随机采样，面积从[8%, 100%]中随机采样的矩形，并缩放到224×224大小；
 3. 以0.5的概率进行水平翻转；
 4. 将HSL值（hue, saturation, lightness）以[0.6, 1,4]的均匀分布进行缩放；
 5. 添加服从正态分布N(0, 0.1)的PCA噪声；
@@ -35,3 +35,24 @@ tags:
 
 卷积层与全连接层的权重均通过 Xavier 进行初始化：[-a, a]，a=sqrt(6/(d<sub>in</sub>+d<sub>out</sub>))
 其中d<sub>in</sub>是输入通道数，d<sub>out</sub>是输出通道数。偏置均为0，batch norm中，&gamma;=1, &beta;=0。
+optimizer采用Nesterov Accelerated Gradient（NAG），训练120个 epochs，batchsize 为256，初始学习率为0.1，并在第30，60，90个epoch时处以10。
+
+### GPU高效训练的几个tricks
+
+GPU的发展使最近performance related trade-offs已经发生了变化，如大batch size的低精度表达。主要review了以下几种tricks：
+
+#### large batch training
+
+对凸优化问题，随着batch size的增大，收敛率会随之降低。神经网络也收到了类似的经验。换句话说，对于相同的epoch数量，使用大的batch size的模型在validation上的表现会比小batch size的模型差。以下四种启发式的trick尝试解决这个问题：
+
+**linear scaling learning rate**：mini batch SGD的训练过程是随机过程，因为样本的选取是随机的。而增大batch的大小不会改变batch的期望（需要无偏的假设才行），但会改变方差。即：大的batch size降低了梯度的噪声，所以我们可以在梯度的反方向进行更大步长的下降。随batch size线性增长的learning rate在ResNet-50上取得了实验证明。如果对batch size=256，learning rate=0.1，则当我们将batch size增大为 *b* 时，我们可以将learning rate增大到 0.1 × *b* / 256
+
+**learning rate warmup**：在训练的初期使用大的learnig rate可能会引起训练的不稳定（振荡，发散）。learning rate warmup提出，可以在训练的初期使用小的learning rate，在训练稳定后，再变为初始学习率。一种具体的策略是线性warmup，即训练开始时，学习率为0，而在warmup阶段的batch中，每t个batch将学习率线性增大，直到得到初始学习率（如0.1）。
+
+**zero &gamma;**：假设残差块的输入为x，则输出为x+f(x)，而f(x)最后一层一般为一个batch norm层。batch norm首先将x归一化得到x<sub>n</sub>，在输出通过可学习参数&gamma;与&beta;进行线性变化后的值 &gamma;×x<sub>n</sub>+&beta;。通过在训练的初期将&gamma;置为0，可以使残差块输出=输入，使网络的层数隐式减少，从而降低初始阶段的训练难度。
+
+**no bias decay**：decay通常会apply到网络的所有可学习参数中，实际等价于施加一个L2正则，以降低过拟合。而一些work提出，最好只对卷积weight和全连接层进行decay，而不对bias，以及batch norm层的&gamma;和&beta;进行decay。
+
+#### low precision training
+
+目前很多新式GPU对FP32与FP16的计算设计了不同的加速方法。如NvV100，`FP32为14TFLOPS`，同时`FP16为100TFLOPS`。需要注意的是，训练中低精度的数据可能会使计算结果out-of-range。有工作提出，使用FP16表示参数与激活，同时用FP16计算梯度，但同时在update时，将参数保存一份FP32的副本。
