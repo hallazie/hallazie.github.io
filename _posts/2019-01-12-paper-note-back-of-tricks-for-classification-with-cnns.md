@@ -16,7 +16,7 @@ tags:
 文章内容：
 * baseline training procedure
 * 在新的硬件上进行高效训练的几个tricks
-* review了三种模型结构调优（tweaks）的方法，和四种训练过程优化方法。
+* review了三种模型结构微调（tweaks）的方法，和四种训练过程优化方法。
 * 讨论了更高准确率分类模型对迁移学习的影响。
 
 ### Baseline Procedure
