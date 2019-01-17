@@ -54,7 +54,9 @@ images:
  -->
 
  <!-- Chinese Version -->
-<div class="gallery post-container">
-    {% capture gallery %}{% include gallery/gallery.md %}{% endcapture %}
-    {{ gallery | markdownify }}
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+  <div class="gallery post-container">
+      {% capture gallery %}{% include gallery/gallery.md %}{% endcapture %}
+      {{ gallery | markdownify }}
+  </div>
 </div>
