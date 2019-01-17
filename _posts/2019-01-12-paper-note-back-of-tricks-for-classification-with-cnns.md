@@ -31,8 +31,5 @@ tags:
 1. 将图像的短轴缩放到256，并从中心截取224×224；
 2. 将RGB通道进行归一化，分别减去123.68, 116.779, 103.939，并除以58.393, 57.12, 57.375。
 
-卷积层与全连接层的权重均通过 Xavier 进行初始化：[-a, a]
-```mathjax
-a = \sqrt{{6/(d_{in}+d_{out})}}
-```
-其中d<sub>in</sub>是输入通道数，d<sub>out</sub>是输出通道数。
+卷积层与全连接层的权重均通过 Xavier 进行初始化：[-a, a]，a=sqrt(6/(d<sub>in</sub>+d<sub>out</sub>))
+其中d<sub>in</sub>是输入通道数，d<sub>out</sub>是输出通道数。偏置均为0，batch norm中，&gamma;=1, &beta;=0。
