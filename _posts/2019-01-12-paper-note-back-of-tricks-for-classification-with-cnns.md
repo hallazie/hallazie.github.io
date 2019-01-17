@@ -8,7 +8,7 @@ tags:
  - CNNs
 ---
 
-> 通过这篇文章，可以系统化的掌握一些调优方式，同时可以将整个模型训练的过程及其中涉及的一些细节进行系统化的总结。
+> 通过[这篇文章](https://arxiv.org/abs/1812.01187)，可以系统化的掌握一些调优方式，同时可以将整个模型训练的过程及其中涉及的一些细节进行系统化的总结。
 
 ### Abstract
 当前image classification领域的进步很大程度来自于对**训练过程的优化**，如`data argumentation`和`optimization`方面的改进。这篇文章对这些方法进行了测试并通过ablation对他们对于模型最终表现的影响进行了 empirically evaluation。通过结合这些方法，ResNet-50的top1准确率得到了提高，而更高准确率的分类模型在迁移到其他 domain 后也有了更好的表现。
@@ -56,3 +56,22 @@ GPU的发展使最近performance related trade-offs已经发生了变化，如�
 #### low precision training
 
 目前很多新式GPU对FP32与FP16的计算设计了不同的加速方法。如NvV100，`FP32为14TFLOPS`，同时`FP16为100TFLOPS`。需要注意的是，训练中低精度的数据可能会使计算结果out-of-range。有工作提出，使用FP16表示参数与激活，同时用FP16计算梯度，但同时在update时，将参数保存一份FP32的副本。
+
+### 模型结构微调
+
+ResNet模型的原始结构参见[文章](https://arxiv.org/abs/1512.03385)
+
+**ResNet-B**：原始ResNet中，残差块3×3通道中卷积层顺序为 1×1(s=2)，3×3，1×1。这样的问题是在第一步，3/4的前层激活信息都被丢弃了。ResNet-B将通道改变为1×1，3×3(s=2)，1×1，使所有信息都被使用。同时，由于残差块的残差连接为1×1(s=2)，同样有3/4的信息被丢弃，故将残差连接改为2×2 average pooling，后接1×1(s=1)卷积。
+
+**ResNet-C**：观察表示卷积的计算消耗与其卷积核宽高程二次关系。故将ResNet最下层的7×7卷积改为3层3×3卷积，减少计算消耗。
+
+### training refinement
+
+**cosine learning rate decay**：learning rate调整对于训练来说是非常关键的。step decay-每30个epoch乘以0.1，也有每2个epoch乘以0.94的线性decay。cosine decay则是：
+$\eta_{t}=\frac{1}{2}(1+cos(\frac{t\pi}{T}))\eta$
+
+**label smoothing**：
+
+**knowledge distillation**：
+
+**mixup training**：
