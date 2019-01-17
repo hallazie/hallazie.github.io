@@ -70,8 +70,12 @@ ResNet模型的原始结构参见[文章](https://arxiv.org/abs/1512.03385)
 **cosine learning rate decay**：learning rate调整对于训练来说是非常关键的。step decay-每30个epoch乘以0.1，也有每2个epoch乘以0.94的线性decay。cosine decay则是：
 $\eta_{t}=\frac{1}{2}(1+cos(\frac{t\pi}{T}))\eta$
 
-**label smoothing**：
+**label smoothing**：对于分类，输出的概率q<sub>i</sub>为最后全连接层经过softmax变换之后的值。其loss通过与one-hot label的交叉熵计算。要使交叉熵最小，对于y<sub>i</sub>=1的q<sub>i</sub>要接近无限大，而过大的输出可能会导致过拟合。label smooth将q<sub>i</sub>转换为：q<sub>i</sub>=&sigma;，如果y<sub>i</sub>=1，否则q<sub>i</sub>=&sigma;/(K-1)。同时将交叉熵计算中对输出求指数的步骤舍去。
+<!-- （感觉这种方法对于negative的学习不是很友好） -->
 
-**knowledge distillation**：
+**知识蒸馏**：知识蒸馏是通过让低精度的小网络模拟一个高精度的大网络的输出，从而降低模型复杂度的。首先训练一个高精度的大网络（如ResNet-152），在其训练完成后，搭建一个小网络（如ResNet-50），并设置一个distillation loss，如对于具有相同输出类的两个网络，则设置交叉熵作为loss。通过最小化小网络与大网络输出的差值，使小网络间接学习。
 
-**mixup training**：
+**mixup training**：对于两个输入输出对（x<sub>i</sub>, y<sub>i</sub>, x<sub>j</sub>, y<sub>j</sub>），将输入输出对进行加权线性组合：
+x<sup>t</sup>=&alpha;x<sub>i</sub>+(1-&alpha;)x<sub>j</sub>
+y<sup>t</sup>=&alpha;y<sub>i</sub>+(1-&alpha;)y<sub>j</sub>
+使用组合后的数据进行训练。（感觉有点扯）
