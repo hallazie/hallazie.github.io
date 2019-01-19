@@ -3,6 +3,7 @@ layout: default
 title: "Gallery"
 description: "无产主义涂鸦"
 header-img: "img/gallery-bg.jpg"
+support: [jquery, gallery]
 <!-- images:
   - image: /myworks/001.jpg
   - image: /myworks/002.jpg
@@ -53,10 +54,12 @@ header-img: "img/gallery-bg.jpg"
 </div>
  -->
 
- <!-- Chinese Version -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+<!-- <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
   <div class="gallery post-container">
       {% capture gallery %}{% include gallery/gallery.md %}{% endcapture %}
       {{ gallery | markdownify }}
   </div>
 </div>
+ -->
+
+{{ content }}
