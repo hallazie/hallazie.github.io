@@ -19,10 +19,11 @@ def run_mywork():
 		# 	os.remove('myworks/'+f)
 		for k in img_dict.keys():
 			x, y = img_dict[k].size
-			if min(x, y) == x:
-				t_x, t_y = 480, int(480*y/float(x))
-			else:
-				t_x, t_y = int(480*x/float(y)), 480
+			# if min(x, y) == x:
+			# 	t_x, t_y = 480, int(480*y/float(x))
+			# else:
+			# 	t_x, t_y = int(480*x/float(y)), 480
+			t_x, t_y = 480, int(480*y/float(x))
 			thumb = img_dict[k].resize((t_x, t_y))
 			img_dict[k].save('myworks/%s-%sx%s.jpg' % (k, x, y))
 			thumb.save('myworks/%s-%sx%s.jpg' % (k, t_x, t_y))

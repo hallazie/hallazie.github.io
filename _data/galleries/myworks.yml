@@ -23,8 +23,8 @@ pictures:
   original: 003-3508x2552.jpg
   sizes:
   - 003-3508x2552.jpg
-  - 003-659x480.jpg
-  thumbnail: 003-659x480.jpg
+  - 003-480x349.jpg
+  thumbnail: 003-480x349.jpg
 - filename: 004
   original: 004-2284x3276.jpg
   sizes:
@@ -35,8 +35,8 @@ pictures:
   original: 005-2592x1936.jpg
   sizes:
   - 005-2592x1936.jpg
-  - 005-642x480.jpg
-  thumbnail: 005-642x480.jpg
+  - 005-480x358.jpg
+  thumbnail: 005-480x358.jpg
 - filename: 006
   original: 006-1936x2592.jpg
   sizes:
