@@ -1,0 +1,45 @@
+picture_path: myworks
+preview:
+  filename: 002
+  original: 002.jpg
+  sizes:
+  - 002-2244x3168.jpg
+  - 002-480x677.jpg
+  thumbnail: 002-480x677.jpg
+pictures:
+- filename: 001
+  original: 001-2244x3168.jpg
+  sizes:
+  - 001-2244x3168.jpg
+  - 001-480x677.jpg
+  thumbnail: 001-480x677.jpg
+- filename: 002
+  original: 002-2244x3168.jpg
+  sizes:
+  - 002-2244x3168.jpg
+  - 002-480x677.jpg
+  thumbnail: 002-480x677.jpg
+- filename: 003
+  original: 003-3508x2552.jpg
+  sizes:
+  - 003-3508x2552.jpg
+  - 003-659x480.jpg
+  thumbnail: 003-659x480.jpg
+- filename: 004
+  original: 004-2284x3276.jpg
+  sizes:
+  - 004-2284x3276.jpg
+  - 004-480x688.jpg
+  thumbnail: 004-480x688.jpg
+- filename: 005
+  original: 005-2592x1936.jpg
+  sizes:
+  - 005-2592x1936.jpg
+  - 005-642x480.jpg
+  thumbnail: 005-642x480.jpg
+- filename: 006
+  original: 006-1936x2592.jpg
+  sizes:
+  - 006-1936x2592.jpg
+  - 006-480x642.jpg
+  thumbnail: 006-480x642.jpg
