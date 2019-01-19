@@ -13,6 +13,12 @@ pictures:
   - 001-2244x3168.jpg
   - 001-480x677.jpg
   thumbnail: 001-480x677.jpg
+- filename: 007
+  original: 007-3648x2736.jpg
+  sizes:
+  - 007-3648x2736.jpg
+  - 007-480x360.jpg
+  thumbnail: 007-480x360.jpg
 - filename: 002
   original: 002-2244x3168.jpg
   sizes:
