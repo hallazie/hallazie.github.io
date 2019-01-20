@@ -13,6 +13,7 @@
 
 <script>
 $(document).ready(function() {
+  console.log({include.id_number});
   var $gallery{% if include.id_number %}{{ include.id_number }}{% endif %} = $("#image-gallery{% if include.id_number %}-{{ include.id_number }}{% endif %}").lightGallery({
     thumbnail: false,
     selector: '.image'
