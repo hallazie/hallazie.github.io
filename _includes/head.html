@@ -30,9 +30,13 @@
 
     {% if page.support contains 'gallery' %}
     <!-- A jQuery plugin that adds cross-browser mouse wheel support. (Optional) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/css/lightgallery.min.css" />
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/css/lightgallery.min.css" /> -->
 <!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.4/js/lightgallery.min.js"></script> -->
-    <script src="http://www.jsdelivr.com/projects/lightgallery.js"></script>
+
+    <link rel="stylesheet" href="{{ "/css/lightgallery.css" | prepend: site.baseurl }}">
+
+    <script src="{{ "/js/lightgallery.js " | prepend: site.baseurl }}"></script>
+
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 
