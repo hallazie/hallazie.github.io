@@ -17,7 +17,7 @@ $(document).ready(function() {
   //   thumbnail: false,
   //   selector: '.image'
   // });
-  var $gallery{% if include.id_number %}{{ include.id_number }}{% endif %} = lightGallery(document.getElementsByClassName('image-gallery'));
+  lightGallery(document.getElementsByClassName('image-gallery'));
 });
 
 // init isotope
