@@ -33,7 +33,34 @@ def run_mywork():
 				os.remove('myworks/' + f)
 
 def run_yml():
-	pass
+	res = []
+	f_dict = {}
+	res.append('picture_path: myworks')
+	res.append('pictures:')
+	for _,_,fs in os.walk('myworks'):
+		for f in fs:
+			pref = f.split('-')[0]
+			if pref not in f_dict.keys():
+				f_dict[pref] = [0,0]
+				f_dict[pref][0] = f
+			else:
+				f_dict[pref][1] = f
+	for k in f_dict.keys():
+		if '640x' in f_dict[k][0]:
+			thumb = f_dict[k][0]
+			orign = f_dict[k][1]
+		else:
+			thumb = f_dict[k][1]
+			orign = f_dict[k][0]
+		res.append('- filename: %s' % k)
+		res.append('  original: %s' % orign)
+		res.append('  sizes:')
+		res.append('  - %s' % orign)
+		res.append('  - %s' % thumb)
+		res.append('  thumbnail: %s' % thumb)
+	with open('_data/galleries/myworks.yml', 'w') as yf:
+		for line in res:
+			yf.write(line+'\n')
 
 if __name__ == '__main__':
 	run_mywork()
