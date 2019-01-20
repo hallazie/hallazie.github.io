@@ -23,7 +23,7 @@ def run_mywork():
 			# 	t_x, t_y = 480, int(480*y/float(x))
 			# else:
 			# 	t_x, t_y = int(480*x/float(y)), 480
-			t_x, t_y = 480, int(480*y/float(x))
+			t_x, t_y = 640, int(640*y/float(x))
 			thumb = img_dict[k].resize((t_x, t_y))
 			img_dict[k].save('myworks/%s-%sx%s.jpg' % (k, x, y))
 			thumb.save('myworks/%s-%sx%s.jpg' % (k, t_x, t_y))
