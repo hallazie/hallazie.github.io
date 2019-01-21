@@ -6,6 +6,7 @@ author:     作壹條苟
 tags:
  - deep learning
  - CNNs
+ - paper reading
 ---
 
 > regularization不一定是保证large scale DNNs泛化性的原因。对于N样本，D维度的数据集，DNNs的参数大于N+2D时，一定可以“记忆”住该数据集（注意非学习，因为学习需要具有可泛化性）

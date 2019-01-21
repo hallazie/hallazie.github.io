@@ -6,6 +6,7 @@ author:     作壹條苟
 tags:
  - deep learning
  - CNNs
+ - paper reading
 ---
 
 > 通过[这篇文章](https://arxiv.org/abs/1812.01187)，可以系统化的掌握一些调优方式，同时可以将整个模型训练的过程及其中涉及的一些细节进行系统化的总结。
