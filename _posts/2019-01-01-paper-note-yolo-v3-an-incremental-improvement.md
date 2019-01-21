@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      论文笔记 - YOLOv3: An Incremental Improvement
+title:      论文笔记 - YOLOv3 An Incremental Improvement
 date:       2019-01-01 12:00:00
 author:     作壹條苟
 tags:
