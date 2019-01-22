@@ -72,12 +72,6 @@ pictures:
   - 4-3932x2948.jpg
   - 4-640x479.jpg
   thumbnail: 4-640x479.jpg
-- filename: 008.jpg
-  original: 008.jpg
-  sizes:
-  - 008.jpg
-  - 0
-  thumbnail: 0
 - filename: 002
   original: 002-2244x3168.jpg
   sizes:
