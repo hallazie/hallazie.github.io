@@ -15,6 +15,10 @@ tags:
 
 TODO
 
+### 轻量化网络模块
+
+深度可分析卷积及其几种典型实现：SqueezeNet、MobileNet、ShuffleNet
+
 ### 剪枝
 
 TODO
