@@ -6,7 +6,7 @@ author:     作壹條苟
 tags:
  - deep learning
  - neural networks
- - paper reading
+ - 论文笔记
 ---
 
 > 对Yolo系列是直接从[v3](https://arxiv.org/abs/1804.02767)开始看的，这篇笔记是对整个Yolo系列方法的学习，同时也作为自己对object detection整体脉络理解的整理。
