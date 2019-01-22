@@ -5,7 +5,7 @@ date:       2019-01-12 12:01:00
 author:     作壹條苟
 tags:
  - deep learning
- - CNNs
+ - neural networks
  - paper reading
 ---
 

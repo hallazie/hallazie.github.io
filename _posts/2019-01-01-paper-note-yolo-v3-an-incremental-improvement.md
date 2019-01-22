@@ -5,13 +5,13 @@ date:       2019-01-01 12:00:00
 author:     作壹條苟
 tags:
  - deep learning
- - CNNs
+ - neural networks
  - paper reading
 ---
 
 > 对Yolo系列是直接从[v3](https://arxiv.org/abs/1804.02767)开始看的，这篇笔记是对整个Yolo系列方法的学习，同时也作为自己对object detection整体脉络理解的整理。
-Yolo 的一大优势在于对可以端到端的回归出bounding box的位置、宽高、分类及其conf。而取得这种优势的源头在于其颠覆性（自己确实没有在其他work中见过类似思路）的对传统CNNs中特征张量不同维度的使用，将以channel分离的2-d feature map作为计算单元改变为以width-height分离的1-d 空间特征向量作为计算单元。其外的如固定的anchor boxes，最后3层不同resolution的output等都是在其上锦上添花的tricks。
-对数据的理解能力对炼丹师傅是非常essential的。这种理解不仅是对原数据，还有对中间数据的intuition。希望通过Yolo能对CNNs的中间激活图张量能有更深的理解。
+> Yolo 的一大优势在于对可以端到端的回归出bounding box的位置、宽高、分类及其conf。而取得这种优势的源头在于其颠覆性（自己确实没有在其他work中见过类似思路）的对传统CNNs中特征张量不同维度的使用，将以channel分离的2-d feature map作为计算单元改变为以width-height分离的1-d 空间特征向量作为计算单元。其外的如固定的anchor boxes，最后3层不同resolution的output等都是在其上锦上添花的tricks。
+> 对数据的理解能力对炼丹师傅是非常essential的。这种理解不仅是对原数据，还有对中间数据的intuition。希望通过Yolo能对CNNs的中间激活图张量能有更深的理解。
 
 ### Yolo 的优势
 
