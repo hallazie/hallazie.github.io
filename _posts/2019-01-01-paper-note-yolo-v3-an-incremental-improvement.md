@@ -16,7 +16,7 @@ tags:
 
 ### Yolo 的优势
 
-与Yolo对比的object detection方法主要是RCNN系列及SSD。TODO:回头再看下RCNN和SSD的思想，现在忘了。
+与Yolo对比的object detection方法主要是RCNN系列及SSD。
 
 * Yolo是端到端的：通过改变特征张量的计算单元，同时以固定的anchor boxes固定输出数量，Yolo实现了对object的类别与空间信息的端到端回归。
 * Yolo很快：整个网络通过全卷积实现。
