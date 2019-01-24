@@ -41,7 +41,7 @@ TODO
 <!-- 剪枝可以发生在weight/bias/activation上，但一般对activation进行剪枝。bias由于其数量少对输出的贡献相对大，而weight通常很小，所以通常不作为剪枝策略。 -->
 
 网络中，不同深度，不同类型的神经元对剪枝的敏感度是不同的。在AlexNet top5 acc实验中，越深的神经元越不敏感，且全连接比卷积不敏感：
-![image](https://github.com/hallazie/hallazie.github.io/blob/master/img/in-post/alexnet_top5_sensitivity.png)
+![image](/img/in-post/alexnet_top5_sensitivity.png)
 
 l0范数可用于量化网络的sparsity。
 
