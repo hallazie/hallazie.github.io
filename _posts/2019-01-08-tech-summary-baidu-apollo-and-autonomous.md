@@ -42,4 +42,4 @@ tags:
 
 先进行segmentation，将图像分割为车道和背景，再通过embedding把分割后的的车道分离为车道实例。
 
-![image](../img/in-post/lanenet.jpg)
+![image](https://github.com/hallazie/hallazie.github.io/blob/master/img/in-post/lanenet.jpg)
