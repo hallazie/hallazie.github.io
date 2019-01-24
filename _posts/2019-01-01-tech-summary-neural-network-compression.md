@@ -47,6 +47,12 @@ l0范数可用于量化网络的sparsity。
 
 ### 正则化 regularization
 
+各个框架中**weight decay**即损失函数中正则项的强度系数。[Dense-Sparse-Dense](https://arxiv.org/abs/1607.04381v1)使用剪枝作为正则手段：
+
+> "Sparsity is a powerful form of regularization. Our intuition is that, once the network arrives at a local minimum given the sparsity constraint, relaxing the constraint gives the network more freedom to escape the saddle point and arrive at a higher-accuracy local minimum."
+
+增强正则项，迫使网络达到局部最小值，再放松正则项，重新开始收敛，达到更好的局部最小值，如此往复。
+
 通过正则进行网络压缩的手段是以正则形成稀疏的网络，再利用稀疏网络中大量0值压缩网络结构。Sparse neural networks hold the promise of speed, small size, and energy efficiency. 
 
 ### 条件计算 conditional computation

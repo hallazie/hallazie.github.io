@@ -14,4 +14,5 @@ tags:
 > 同时文章得出结论，大型神经网络一定可以“记忆”住定量的数据集的（注意非学习，因为学习需要具有可泛化性）。并给出计算公式：DNNs的学习能力为N+2D，其中N为样本数，D为输入维度。  
 > 文章读下来，感觉重新泛化与正则之间的insight是很有意义的，但直觉上总觉得文章里实验到结论之间不是很说得通。还有待思考。同时后面又有一篇文章 <[Rethinking generalization requires revisiting old ideas: statistical mechanics approaches and complex learning behavior](https://arxiv.org/abs/1710.09553)>，需要找时间仔细读一下。
 
-TODO
+Ian Goodfellow将regularization定义为：
+> "any modification we make to a learning algorithm that is intended to reduce its generalization error, but not its training error."
