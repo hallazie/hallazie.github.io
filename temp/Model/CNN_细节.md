@@ -1,4 +1,0 @@
-* CNN is easily fooled/hacked: <Why do deep convolutional networks generalize so poorly to small image transformations?> 
-* distributed training of convnets can be achieved by partitioning each batch of examples across the nodes of a cluster and accumulating weight updates across the nodes.  convnet的分布式训练可通过将batch上的样本分别在不同的node上训练，再将不同node上的权重更新累积得到。（两种分布式训练中的样本分布，还有模型分布，即将不同的layer放在不同的node上，这种需要解决时序依赖）。但过大的batch size反而会影响网络在cluster上的收敛（https://arxiv.org/abs/1509.09308）
-
-* arithmetically，convolution = correlation + flip over in both horizontal and vertical。但CNNs在实际计算中 convolution = correlation。

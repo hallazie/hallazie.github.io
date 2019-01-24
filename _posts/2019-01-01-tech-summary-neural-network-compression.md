@@ -53,6 +53,10 @@ l0范数可用于量化网络的sparsity。
 
 增强正则项，迫使网络达到局部最小值，再放松正则项，重新开始收敛，达到更好的局部最小值，如此往复。
 
+regularization的作用域还可以由单个神经元推广到一整个group的神经元上：网络的神经元被预定义到不同的group上，当对group进行正则化时，整个group的神经元均被置0。
+
+$$loss(W;x;y) = loss_D(W;x;y) + \lambda_R R(W) + \lambda_g \sum_{l=1}^{L} R_g(W_l^{(G)})$$
+
 通过正则进行网络压缩的手段是以正则形成稀疏的网络，再利用稀疏网络中大量0值压缩网络结构。Sparse neural networks hold the promise of speed, small size, and energy efficiency. 
 
 ### 条件计算 conditional computation
