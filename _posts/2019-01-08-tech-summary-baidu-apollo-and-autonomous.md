@@ -62,7 +62,7 @@ TODO
 
    实际中，一般先用代数方法求粗略解，再用bundle adjustment进行优化。
 
-   ![img](/img/vslam-feature.jpg)
+   ![img](/img/in-post/vslam-feature.jpg)
 
 2. 后端：为了估计累积误差，较早的方法将SLAM构建成卡尔曼滤波，最小化运动方程与观测序列之间的噪声，迭代求解。现在采用 **Bundle Adjustment** 方法，把误差平均到每一次观测。
 
@@ -74,11 +74,11 @@ TODO
 
 * RGB颜色空间与HLS颜色空间可以对同一张图表现出不同的特性：
 
-	![image](/img/lane-screenshot.jpg)
+	![image](/img/in-post/lane-screenshot.jpg)
 
-	![image](/img/colorspace-1.jpg)
+	![image](/img/in-post/colorspace-1.jpg)
 
-	![image](/img/colorspace-2.jpg)
+	![image](/img/in-post/colorspace-2.jpg)
 
  	从RGB空间转换到HLS空间后，黄色车道线可以从白色背景中被成功分离并由Sobel得到边缘信息。
 
