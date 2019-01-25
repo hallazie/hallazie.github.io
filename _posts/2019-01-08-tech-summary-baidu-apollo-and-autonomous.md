@@ -74,7 +74,7 @@ TODO
 
 * RGB颜色空间与HLS颜色空间可以对同一张图表现出不同的特性：
 
-	![image](/img/in-post/lane-screenshot.jpg)
+	![image](/img/in-post/lane-screenshot.png)
 
 	![image](/img/in-post/colorspace-1.jpg)
 
