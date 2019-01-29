@@ -13,9 +13,15 @@ tags:
 
 [UToronto的instance segmentation ppt](http://www.cs.toronto.edu/~urtasun/courses/CSC2541/08_instance.pdf)
 
-### 实现1. Mask RCNN based
+### 实现1. Mask RCNN
+
+git: https://github.com/matterport/Mask_RCNN
 
 Mask-RCNN以Fast-RCNN为backbone实现了instance segmentation。step 1与Fast-RCNN相同，首先进行region proposal。在RPN以sliding window得到region后，通过VGG/ResNet得到512×14×14的tensor。
 ![mask-rcnn net structure step 1](/img/in-post/maskrcnn.jpg)
 ![mask-rcnn net structure step 2-1](/img/in-post/maskrcnn2.jpg)
 ![mask-rcnn net structure step 2-2](/img/in-post/maskrcnn3.jpg)
+
+### 实现2. Deep Mask
+
+git: https://github.com/facebookresearch/deepmask
