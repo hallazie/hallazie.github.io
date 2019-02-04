@@ -16,7 +16,10 @@ tags:
 
 ### Yolo 的优势
 
-与Yolo对比的object detection方法主要是RCNN系列及SSD。
+
+object detection模型可以分为两类：
+* two stage：首先propose多个物体类别未知的region，再使用分类模型将region进行分类。这种方法更intuitive，且performance更好。（RCNN family）
+* one stage：先set fixed sized anchors，再对anchors的偏置进行回归。（SSD, Yolo, RetinaNet, RefineDet）
 
 * Yolo是端到端的：通过改变特征张量的计算单元，同时以固定的anchor boxes固定输出数量，Yolo实现了对object的类别与空间信息的端到端回归。
 * Yolo很快：整个网络通过全卷积实现。
