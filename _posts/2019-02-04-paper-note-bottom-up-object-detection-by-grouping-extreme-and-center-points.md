@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      论文笔记 - ExtremeNet
+title:      论文笔记 - Bottom-up Object Detection by Grouping Extreme and Center Points
 date:       2019-02-04 00:16:00
 author:     作壹條苟
 tags:
@@ -29,7 +29,8 @@ tags:
 
 * 使用keypoint estimation net提取图像中物体的上、下、左、右极值点。文章假设所有的物体都服从一种基于上下左右极值点的通用表达，通过对CornerNet进行finetune，使模型学习输入中所有物体的极值点。极值点通过heatmap表达，由每一个类型的特定极值点（如汽车的下侧极值点）形成一个heatmap。keypoint提取模型训练方式可以包括：
 	1. 将label keypoint使用高斯核模糊之后，直接以L2 loss进行训练；
-	2. 以逐点logistic regression训练。
+	2. 直接对label keypoint以逐点logistic regression训练。
+heatmap的学习以[0,1]区间的根据极值点、中心点渲染的Gaussian map为label。其中极值、中心点为Gaussian kernel的均值，方差可以设为固定值，也可以与物体大小等比例。
 
 ![extremenet step 2](/img/in-post/extremenet-2.jpg)
 
@@ -39,16 +40,24 @@ tags:
 
 #### Keypoint detection
 
-TODO
-
-#### CornerNet
+使用Hourglass Network作为backbone对每个物体类别进行极值点及中心点回归。They follow the training setup, loss and offset prediction of Corner Net。其中offset是类别无关，但极值点相关的。
 
 * [Cornernet: Detecting objects as paired keypoints](https://arxiv.org/abs/1808.01244)
 * [Stacked Hourglass Networks for Human Pose Estimation](https://arxiv.org/abs/1603.06937)
 
+#### Center(peak) grouping
+
+对于每个heatmap，使用extractpeak procedure将连续的Gaussian kernel转换为离散（单一值）keypoint coordinate。
+
 #### Deep Extreme Cut
+
+DEC读入四个极值点，并进行与类别无关的前景分割。
+
+### 适用任务
 
 TODO
 
-### 适用任务
+### TODO LIST
+
+* Focal loss
 

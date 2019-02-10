@@ -16,7 +16,6 @@ tags:
 
 ### Yolo 的优势
 
-
 object detection模型可以分为两类：
 * two stage：首先propose多个物体类别未知的region，再使用分类模型将region进行分类。这种方法更intuitive，且performance更好。（RCNN family）
 * one stage：先set fixed sized anchors，再对anchors的偏置进行回归。（SSD, Yolo, RetinaNet, RefineDet）
