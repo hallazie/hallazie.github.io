@@ -27,16 +27,13 @@ tags:
 
 * label：模型训练采用对上下左右四个极值点及中心点做回归。使用extreme click标注四个极值点，并计算左右、上下极值点的均值作为中心点 x<sub>c</sub>=(x<sub>l</sub>+x<sub>r</sub>)/2, y<sub>c</sub>=(y<sub>t</sub>+y<sub>b</sub>)/2。
 
-* 使用keypoint estimation net提取图像中物体的上、下、左、右极值点。文章假设所有的物体都服从一种基于上下左右极值点的通用表达，通过对CornerNet进行finetune，使模型学习输入中所有物体的极值点。极值点通过heatmap表达，由每一个类型的特定极值点（如汽车的下侧极值点）形成一个heatmap。keypoint提取模型训练方式可以包括：
-	1. 将label keypoint使用高斯核模糊之后，直接以L2 loss进行训练；
-	2. 直接对label keypoint以逐点logistic regression训练。
-heatmap的学习以[0,1]区间的根据极值点、中心点渲染的Gaussian map为label。其中极值、中心点为Gaussian kernel的均值，方差可以设为固定值，也可以与物体大小等比例。
+* extreme point extraction
 
 ![extremenet step 2](/img/in-post/extremenet-2.jpg)
 
-* peak extraction，将heatmap的高斯模糊峰值转换为极值点物理坐标。
+* peak extraction
 
-* 使用[Deformable Part Model](http://cs.brown.edu/people/pfelzens/papers/lsvm-pami.pdf)的思想对极值点进行grouping。其中中心点相当于DPM的root filter，四个极值点相当于对于所有类别通用的四个分解部分，四个极值点与中心点构成一种固定的几何形态。
+* center grouping
 
 #### Keypoint detection
 
@@ -45,13 +42,33 @@ heatmap的学习以[0,1]区间的根据极值点、中心点渲染的Gaussian ma
 * [Cornernet: Detecting objects as paired keypoints](https://arxiv.org/abs/1808.01244)
 * [Stacked Hourglass Networks for Human Pose Estimation](https://arxiv.org/abs/1603.06937)
 
+使用keypoint estimation net提取图像中物体的上、下、左、右极值点。文章假设所有的物体都服从一种基于上下左右极值点的通用表达，通过对CornerNet进行finetune，使模型学习输入中所有物体的极值点。极值点通过heatmap表达，由每一个类型的特定极值点（如汽车的下侧极值点）形成一个heatmap。keypoint提取模型训练方式可以包括：
+	1. 将label keypoint使用高斯核模糊之后，直接以L2 loss进行训练；
+	2. 直接对label keypoint以逐点logistic regression训练。
+heatmap的学习以[0,1]区间的根据极值点、中心点渲染的Gaussian map为label。其中极值、中心点为Gaussian kernel的均值，方差可以设为固定值，也可以与物体大小等比例。
+
 #### Center(peak) grouping
 
-对于每个heatmap，使用extractpeak procedure将连续的Gaussian kernel转换为离散（单一值）keypoint coordinate。
+对于每个heatmap，使用extractpeak procedure将连续的Gaussian kernel转换为离散（单一值）keypoint coordinate。将heatmap的高斯模糊峰值转换为极值点物理坐标。设置阈值τ，任意大于τ且在3×3窗口内为极值点的像素则取为peak点。（文章没有说具体实现，比较好奇对与整体很亮的一个Gaussian kernel如何提取）。
+
+使用[Deformable Part Model](http://cs.brown.edu/people/pfelzens/papers/lsvm-pami.pdf)的思想对极值点进行grouping。其中中心点相当于DPM的root filter，四个极值点相当于对于所有类别通用的四个分解部分，四个极值点与中心点构成一种固定的几何形态。  
+具体为使用穷举法进行grouping。对于任意一个peak四元组(l, r, t, b)，如果x<sub>c</sub>=(x<sub>l</sub>+x<sub>r</sub>)/2, y<sub>c</sub>=(y<sub>t</sub>+y<sub>b</sub>)/2点上有高的center heatmap响应，就认定为一组。其时间复杂度为O(n<sup>4</sup>)
+
+对于空间上线性对称分布的物体，grouping时可能将不同物体的l, r, t, b聚为一组。对此采用soft NMS进行抑制。
+
+> If the sum of scores of all boxes contained in a certain bounding box exceeds
+3 times of the score of itself, we divide its score by
+2. This non-maxima suppression is similar to the standard
+overlap-based non-maxima suppression, but penalizes potential
+ghost boxes instead of multiple overlapping boxes.
 
 #### Deep Extreme Cut
 
-DEC读入四个极值点，并进行与类别无关的前景分割。
+简单实现为形成一个八边形的bbox。对四个极值点，在其对应方向上两侧延申1/4的h/w值，遇到corner则截断。
+
+refine的segmentation为：DEC读入四个极值点，并进行与类别无关的前景分割。
+
+![extremenet result](/img/in-post/extremenet-result.jpg)
 
 ### 适用任务
 
@@ -61,3 +78,4 @@ TODO
 
 * Focal loss
 
+* 在segment时，先用keypoints estimation构造一个大的Gaussian kernel represent的mask，以此为基础进行segment，效果是否更好。如给定一个显著性物体，在显著性高的地方不应该出现seg。（有遮掩的情况下似乎行不通）
