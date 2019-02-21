@@ -1,0 +1,4 @@
+
+[mode的统计解释](http://mathworld.wolfram.com/Mode.html)
+[kde-quora](https://www.quora.com/What-is-kernel-density-estimation)
+mode seeking：寻找概率密度的单峰值

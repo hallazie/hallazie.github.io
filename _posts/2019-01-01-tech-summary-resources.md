@@ -24,7 +24,7 @@ tags:
 
 ### Mathematic notes
 
-TODO
+* [炫酷kernel density estimation演示](https://mathisonian.github.io/kde/)
 
 ### Coding notes
 
@@ -33,3 +33,7 @@ TODO
 ### Datasets
 
 TODO
+
+### Tech Blogs
+
+* [data science可视化大佬](https://mathisonian.com/)
