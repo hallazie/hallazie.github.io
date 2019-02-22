@@ -50,7 +50,7 @@ tags:
 
    截图中(0, 14)，(0, 15)为submap的pose，连线为与scan的constraints。
 
-   ![constraints](constraints.png)
+   ![constraints](/img/in-post/constraints.png)
 
 ### Basic
 
@@ -86,7 +86,7 @@ cartographer源码目录结构：
 
 ---
 
-![carto_flow](cartographer_flow.png)
+![carto_flow](/img/in-post/cartographer_flow.png)
 
 Two scan matching strategies are available:
 
@@ -103,7 +103,7 @@ Two scan matching strategies are available:
 - loop closure中约束的直观理解：**Constraints can intuitively be thought of as little ropes tying all nodes together. The sparse pose adjustement fastens those ropes altogether. The resulting net is called the “pose graph”.**
 - 在特征丰富的室内场景cartographer可以得到很好的结果，但在特征稀疏的对称空间（如长的隧道）或室外效果退化比较严重。下图是一个走廊的slam建图，左侧是cartographer，右侧是hector slam的效果。（TODO，结合scan-submap-loop-closure的原理想这种情况是如何发生的）
 
-![where cartographer failed](where_cartographer_failed.png)
+![where cartographer failed](/img/in-post/where_cartographer_failed.png)
 
 - [cartographer standalone without ROS](https://github.com/googlecartographer/cartographer/issues/1229)
 - Sparse Pose Adjustment [SPA paper]()
