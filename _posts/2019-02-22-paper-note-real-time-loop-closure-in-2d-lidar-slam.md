@@ -23,7 +23,8 @@ tags:
 
 3. 进入local slam：迭代地将下采样后的scan与submap进行匹配，对submap进行构建。
 
-   1. 对于新得到的scan，通过对scan pose与submap pose构造非线性最小二乘优化（CS），最大化scan在submap中的概率对scan的pose进行优化，得到scan插入submap的位置和角度。其中T<sub>ξ</sub>将h<sub>k</sub>从scan坐标转换到submap坐标。M<sub>smooth</sub>为将二维的坐标数据平滑为一维的概率值数据的方法，这里采用**双三次插值**。cartographer中直接使用ceres-solver对（CS）进行优化，得到优化后的位姿 ξ。
+   1. 对于新得到的scan，通过对scan pose与submap pose构造非线性最小二乘优化（CS），最大化scan在submap中的概率对scan的pose进行优化，得到scan插入submap的位置和角度。其中T<sub>ξ</sub>将h<sub>k</sub>从scan坐标转换到submap坐标。M<sub>smooth</sub>为将二维的坐标数据平滑为一维的概率值数据的方法，这里采用**双三次插值**。cartographer中直接使用ceres-solver对（CS）进行优化，得到优化后的位姿 ξ。  
+
       $$
       argmin_{\xi} \sum_{k=1}^{K}(1-M_{smooth}(T_{\xi}h_{k}))^2
       $$
@@ -42,7 +43,8 @@ tags:
 
    4. 优化服从的约束为Σ<sub>ij</sub>和ξ<sub>ij</sub>，Σ<sub>ij</sub>为submap<sub>i</sub>与scan<sub>j</sub>的协方差，ξ<sub>ij</sub>为submap<sub>i</sub>与scan<sub>j</sub>的相对位姿，具体为scan在submap的何处插入。
 
-   5. 构造（SPA）以及（BBS）如下，得到参与优化的submap与scan的优化位姿。参与优化的submap、scan pose由scan matcher在后台搜索到的具有relative pose的submap-scan pair组成。
+   5. 构造（SPA）以及（BBS）如下，得到参与优化的submap与scan的优化位姿。参与优化的submap、scan pose由scan matcher在后台搜索到的具有relative pose的submap-scan pair组成。  
+   
       $$
       argmin_{\Xi^{m}, \Xi^{s}} \frac{1}{2}\sum_{ij}\rho(E^2(\xi_i^m,\xi_j^s;\Sigma_{ij},\xi_{ij})) \ \ (SPA)\\ 
       \xi^*=argmax_{\xi\in W}\sum_{k=1}^KM_{nearest}(T_{\xi}h_k) \ \ (BBS)
