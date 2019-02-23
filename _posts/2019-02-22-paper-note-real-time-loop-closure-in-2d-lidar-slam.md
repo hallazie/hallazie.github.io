@@ -3,6 +3,7 @@ layout:     post
 title:      论文笔记 - Real Time Loop Closure in 2D LIDAR SLAM
 date:       2019-02-22 20:07:00
 author:     作壹條苟
+mathjax:    true
 tags:
  - 自动驾驶
  - 论文笔记
