@@ -8,6 +8,8 @@ tags:
  - 论文笔记
 ---
 
+> [这篇文章](https://research.google.com/pubs/archive/45466.pdf)是Cartographer的理论基础，描述了一种可达到实时效果的用于激光雷达室内SLAM建图方法。目前对SLAM的学习和理解还处在一个很初级的阶段，对除文章描述方法之外的其他方法以及整个方向缺乏认知，需要以这篇文章以及Cartographer的源码阅读为契机，理解SLAM以至自动驾驶方向的任务目标、评价指标、实现方法等，深度参与到这个方向中去。
+
 ### Workflow
 
 1. lidar sensor输入一个scan，scan包含辐射状的[x, y, theta]range data和当前的位姿pose。
