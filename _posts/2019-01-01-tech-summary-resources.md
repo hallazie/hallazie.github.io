@@ -25,10 +25,13 @@ tags:
 ### Mathematic notes
 
 * [炫酷kernel density estimation演示](https://mathisonian.github.io/kde/)
+* [Gauss-Newton](https://blog.xiarui.net/2015/01/22/gauss-newton/) 
 
 ### Coding notes
 
-TODO
+[debugging c++ with gdb](http://www.math.bas.bg/~nkirov/2005/netb151/debugging-with-gdb.html)
+
+[C 和 C++ 中的指针](https://liam.page/2017/02/05/pointer-in-C-and-Cpp/)
 
 ### Datasets
 
