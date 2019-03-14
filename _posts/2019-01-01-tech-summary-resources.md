@@ -10,7 +10,7 @@ tags:
 
 ### ML notes
 
-* [数据科学家必须了解的六大聚类算法：带你发现数据之美](https://www.jiqizhixin.com/articles/the-6-clustering-algorithms-data-scientists-need-to-know)
+* [机器之心-数据科学家必须了解的六大聚类算法：带你发现数据之美](https://www.jiqizhixin.com/articles/the-6-clustering-algorithms-data-scientists-need-to-know)
 
 * [object detection 模型汇总](https://handong1587.github.io/deep_learning/2015/10/09/object-detection.html)
 
@@ -42,3 +42,5 @@ TODO
 ### Tech Blogs
 
 * [data science可视化大佬](https://mathisonian.com/)
+
+* [机器之心-知识图谱：这是一份通俗易懂的知识图谱技术与应用指南](https://www.jiqizhixin.com/articles/2018-06-20-4)
