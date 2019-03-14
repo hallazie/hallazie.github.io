@@ -33,6 +33,8 @@ tags:
 
 [C 和 C++ 中的指针](https://liam.page/2017/02/05/pointer-in-C-and-Cpp/)
 
+[shared_ptr 原理及事故](https://heleifz.github.io/14696398760857.html)
+
 ### Datasets
 
 TODO
