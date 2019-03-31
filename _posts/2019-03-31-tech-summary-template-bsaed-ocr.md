@@ -35,12 +35,19 @@ tags:
 
 ```json
 	"sell_addr_phone": {
+
 		"rdshift": true,
+
 		"space": 0,
+
 		"chars": "和平南大街福地洞天小区12栋4号门市 56825099161",
+
 		"pos": [265, 729],
+
 		"fontsize": 18,
+
 		"font": "font/simsun.ttc"
+		
 	}
 ```
 
