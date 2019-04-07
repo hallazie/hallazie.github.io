@@ -69,7 +69,35 @@ self.noise()
 self.enhance_contrast()
 ```
 
-生成后保存的图像如图所示（这个笔记本上没图，回去后补上）。其中用于第二步line proposal及第三步文本识别的标签保存在文件名对应的json中。
+生成后保存的图像如图所示）。其中用于第二步line proposal及第三步文本识别的标签保存在文件名对应的json中。
+
+![extremenet step 1](/img/in-post/ocr_yolo_output.png)
+
+其中模型实现细节：
+
+1. Anchor选择：如果是3个scale，每个scale3个Anchor共9个，则perform clustering on traning set boxes and output the average w and h for each class. Assign the anchors in descending order, e.g. 最大的三个分配给最前面（粗粒度）的output。
+
+2. 由BoxInfo生成label时，生成shape=[(15,30,3,85),(30,40,3,85),(60,80,3,85)]的array（以80类VOC为例，3个scale的输出，每个scale三个anchor，每个anchor的(x,y,w,h,objectiveness_score,80类的score)）。生成时先生成np.zero(shape=shape)， 再将每个ground truth对应到对应的scale和像素中心。 即最终得到一个稀疏矩阵。
+	a. 对每个gt_bbox，计算中心，找到每个scale对应的x,y
+	b. 对每个scale的x,y计算与gt_bbox的intersection最大的一个scale的anchor（IOU），并以此scale作为添加gt_bbox的scale
+		* IOU = intersect_area / (box_area + anchor_area - intersect_area)，对bbox expand到全部anchor向量化的size，再向量计算。
+	c. 如：中间scale的中间anchor，第5,5像素，类=10，x,y偏置=(0.2,0.4)，w，h偏置为(1.2,3.3), label[1,4,4,1]=[0.2, 0.4, 1.2, 3.3, 1, 0, 0, ... 1, 0, 0, ... 0], shape=(1,85)
+
+3. 由于票据中每项object面积较小，在downsample之后两个靠近的项可能会在三个尺度上都重叠在一起，从而造成丢失。
+
+4. 输出x0,y0,w0,h0计算loss。输出转bbox，x=sigmoid(x0)+cx，y=sigmoid(y0)+cy，w=e^w0，h=e^h0。
+
+5. loss: sum of squared error. y0:gt, y1:output, then: gradient=y0-y1
+
+6. in our case, the scale can set to 1
+
+7. at output, all the bbox-vec with objectness-confidence lower than the threshold is set to 0-vec.
+
+8. total loss = xy_loss(ce) + wh_loss(se) + confidence_loss(ce) + classification_loss(ce)  # (ce=binary crossentropy)
+
+9. 不加confidence mask(或类似置零-过滤机制)，label中占绝大部分的0-vec会让学习收敛到全0。
+
+10. loss function: 论文原版 xy, wh, oc, cs 对应的分别是 binary-ce, squared, binary-ce, binary-ce。实验后发现 mae, mae, binary-ce, binary-ce效果更好。
 
 ### 2. 文本行检测
 
