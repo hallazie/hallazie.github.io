@@ -4,7 +4,7 @@
 
 <!--Hi，我是肖尚华，一名初级码畜-炼丹学徒，18年硕士毕业于川大计院。-->
 
-> Yooooooooooooooooooooooooooooooooooooooooo!!!!
+> Yoooooooooooooooooooooooooooooo!!!!
 
 ---
 
