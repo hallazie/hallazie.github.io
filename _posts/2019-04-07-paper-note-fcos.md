@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      论文笔记 - FCOS: Fully Convolutional One-Stage Object Detection
+title:      论文笔记 - FCOS Fully Convolutional One-Stage Object Detection
 date:       2019-04-07 13:18:00
 author:     作壹條苟
 tags:
@@ -28,3 +28,4 @@ tags:
 $$
 B_i = (x^{(i)}_0, y^{(i)}_0, x^{(i)}_1, y^{(i)}_1, c^{(i)})\in R^4\times{1,2...C}
 $$
+以此为标签，训练时FCOS会直接对bbox的坐标进行学习，而非学习基于锚点的坐标差和尺寸差。
