@@ -14,7 +14,7 @@ tags:
 
 ### MxNet设计及实现
 
-TODO
+对于MxNet的设计及实现最好的资料应该是作者李沐的文章：[MXNet设计和实现简介](https://mli.github.io/2015/12/03/mxnet-overview/)
 
 ### TensorFlow设计及实现
 
