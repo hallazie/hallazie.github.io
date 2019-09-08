@@ -6,6 +6,12 @@ pictures:
   - 023-4032x3024.jpg
   - 023-640x480.jpg
   thumbnail: 023-640x480.jpg
+- filename: 029
+  original: 029-1920x1080.jpg
+  sizes:
+  - 029-1920x1080.jpg
+  - 029-640x360.jpg
+  thumbnail: 029-640x360.jpg
 - filename: 010
   original: 010-1936x2592.jpg
   sizes:
