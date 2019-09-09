@@ -1,17 +1,59 @@
 picture_path: myworks
 pictures:
-- filename: 023
-  original: 023-4032x3024.jpg
+- filename: 001
+  original: 001-2244x3168.jpg
   sizes:
-  - 023-4032x3024.jpg
-  - 023-640x480.jpg
-  thumbnail: 023-640x480.jpg
-- filename: 029
-  original: 029-1920x1080.jpg
+  - 001-2244x3168.jpg
+  - 001-640x903.jpg
+  thumbnail: 001-640x903.jpg
+- filename: 002
+  original: 002-2244x3168.jpg
   sizes:
-  - 029-1920x1080.jpg
-  - 029-640x360.jpg
-  thumbnail: 029-640x360.jpg
+  - 002-2244x3168.jpg
+  - 002-640x903.jpg
+  thumbnail: 002-640x903.jpg
+- filename: 003
+  original: 003-4032x3024.jpg
+  sizes:
+  - 003-4032x3024.jpg
+  - 003-640x480.jpg
+  thumbnail: 003-640x480.jpg
+- filename: 004
+  original: 004-3932x2948.jpg
+  sizes:
+  - 004-3932x2948.jpg
+  - 004-640x479.jpg
+  thumbnail: 004-640x479.jpg
+- filename: 005
+  original: 005-3508x2552.jpg
+  sizes:
+  - 005-3508x2552.jpg
+  - 005-640x465.jpg
+  thumbnail: 005-640x465.jpg
+- filename: 006
+  original: 006-2284x3276.jpg
+  sizes:
+  - 006-2284x3276.jpg
+  - 006-640x917.jpg
+  thumbnail: 006-640x917.jpg
+- filename: 007
+  original: 007-3648x2736.jpg
+  sizes:
+  - 007-3648x2736.jpg
+  - 007-640x480.jpg
+  thumbnail: 007-640x480.jpg
+- filename: 008
+  original: 008-2592x1936.jpg
+  sizes:
+  - 008-2592x1936.jpg
+  - 008-640x478.jpg
+  thumbnail: 008-640x478.jpg
+- filename: 009
+  original: 009-4032x3024.jpg
+  sizes:
+  - 009-4032x3024.jpg
+  - 009-640x480.jpg
+  thumbnail: 009-640x480.jpg
 - filename: 010
   original: 010-1936x2592.jpg
   sizes:
@@ -72,105 +114,63 @@ pictures:
   - 019-1366x768.jpg
   - 019-640x359.jpg
   thumbnail: 019-640x359.jpg
-- filename: .DS_Store
-  original: .DS_Store
-  sizes:
-  - .DS_Store
-  - 0
-  thumbnail: 0
-- filename: 003
-  original: 003-4032x3024.jpg
-  sizes:
-  - 003-4032x3024.jpg
-  - 003-640x480.jpg
-  thumbnail: 003-640x480.jpg
-- filename: 002
-  original: 002-2244x3168.jpg
-  sizes:
-  - 002-2244x3168.jpg
-  - 002-640x903.jpg
-  thumbnail: 002-640x903.jpg
-- filename: 027
-  original: 027-670x503.jpg
-  sizes:
-  - 027-670x503.jpg
-  - 027-640x480.jpg
-  thumbnail: 027-640x480.jpg
-- filename: 026
-  original: 026-3306x2479.jpg
-  sizes:
-  - 026-3306x2479.jpg
-  - 026-640x479.jpg
-  thumbnail: 026-640x479.jpg
-- filename: 007
-  original: 007-3648x2736.jpg
-  sizes:
-  - 007-3648x2736.jpg
-  - 007-640x480.jpg
-  thumbnail: 007-640x480.jpg
-- filename: 006
-  original: 006-2284x3276.jpg
-  sizes:
-  - 006-2284x3276.jpg
-  - 006-640x917.jpg
-  thumbnail: 006-640x917.jpg
-- filename: 005
-  original: 005-3508x2552.jpg
-  sizes:
-  - 005-3508x2552.jpg
-  - 005-640x465.jpg
-  thumbnail: 005-640x465.jpg
-- filename: 004
-  original: 004-3932x2948.jpg
-  sizes:
-  - 004-3932x2948.jpg
-  - 004-640x479.jpg
-  thumbnail: 004-640x479.jpg
-- filename: 009
-  original: 009-4032x3024.jpg
-  sizes:
-  - 009-4032x3024.jpg
-  - 009-640x480.jpg
-  thumbnail: 009-640x480.jpg
-- filename: 008
-  original: 008-2592x1936.jpg
-  sizes:
-  - 008-2592x1936.jpg
-  - 008-640x478.jpg
-  thumbnail: 008-640x478.jpg
-- filename: 028
-  original: 028-1080x1440.jpg
-  sizes:
-  - 028-1080x1440.jpg
-  - 028-640x853.jpg
-  thumbnail: 028-640x853.jpg
-- filename: 025
-  original: 025-4032x3024.jpg
-  sizes:
-  - 025-4032x3024.jpg
-  - 025-640x480.jpg
-  thumbnail: 025-640x480.jpg
-- filename: 024
-  original: 024-3844x2882.jpg
-  sizes:
-  - 024-3844x2882.jpg
-  - 024-640x479.jpg
-  thumbnail: 024-640x479.jpg
-- filename: 001
-  original: 001-2244x3168.jpg
-  sizes:
-  - 001-2244x3168.jpg
-  - 001-640x903.jpg
-  thumbnail: 001-640x903.jpg
-- filename: 021
-  original: 021-2736x3648.jpg
-  sizes:
-  - 021-2736x3648.jpg
-  - 021-640x853.jpg
-  thumbnail: 021-640x853.jpg
 - filename: 020
   original: 020-2736x3648.jpg
   sizes:
   - 020-2736x3648.jpg
   - 020-640x853.jpg
   thumbnail: 020-640x853.jpg
+- filename: 021
+  original: 021-2736x3648.jpg
+  sizes:
+  - 021-2736x3648.jpg
+  - 021-640x853.jpg
+  thumbnail: 021-640x853.jpg
+- filename: 023
+  original: 023-4032x3024.jpg
+  sizes:
+  - 023-4032x3024.jpg
+  - 023-640x480.jpg
+  thumbnail: 023-640x480.jpg
+- filename: 024
+  original: 024-3844x2882.jpg
+  sizes:
+  - 024-3844x2882.jpg
+  - 024-640x479.jpg
+  thumbnail: 024-640x479.jpg
+- filename: 025
+  original: 025-4032x3024.jpg
+  sizes:
+  - 025-4032x3024.jpg
+  - 025-640x480.jpg
+  thumbnail: 025-640x480.jpg
+- filename: 026
+  original: 026-3306x2479.jpg
+  sizes:
+  - 026-3306x2479.jpg
+  - 026-640x479.jpg
+  thumbnail: 026-640x479.jpg
+- filename: 027
+  original: 027-670x503.jpg
+  sizes:
+  - 027-670x503.jpg
+  - 027-640x480.jpg
+  thumbnail: 027-640x480.jpg
+- filename: 028
+  original: 028-1080x1440.jpg
+  sizes:
+  - 028-1080x1440.jpg
+  - 028-640x853.jpg
+  thumbnail: 028-640x853.jpg
+- filename: 029
+  original: 029-1920x1080.jpg
+  sizes:
+  - 029-1920x1080.jpg
+  - 029-900x1598.jpg
+  thumbnail: 029-900x1598.jpg
+- filename: 030
+  original: 030-1488x924.jpg
+  sizes:
+  - 030-1488x924.jpg
+  - 030-640x397.jpg
+  thumbnail: 030-640x397.jpg
