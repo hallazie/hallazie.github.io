@@ -3,6 +3,7 @@ layout:     post
 title:      论文笔记 - Label-free Supervision of NNs with Physics and Domain Knowledge
 date:       2019-09-15 13:00:00
 author:     作壹條苟
+mathjax:    true
 tags:
  - deep learning
  - neural networks
