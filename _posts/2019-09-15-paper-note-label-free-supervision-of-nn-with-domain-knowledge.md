@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      论文笔记 - Label-free Supervision of NNs with Physics and Domain Knowledge
-date:       2019-04-07 13:18:00
+date:       2019-09-15 13:00:00
 author:     作壹條苟
 tags:
  - deep learning
@@ -23,3 +23,4 @@ $$
 $$
 f^* = \mathop{argmin}_{f\in F}\sum^n_{l=1}g(x_i, f(x_i)) + R(f)
 $$
+
