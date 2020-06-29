@@ -1,11 +1,11 @@
 picture_path: myworks
 pictures:
 - filename: 000
-  original: 000-4032x5688.jpg
+  original: 000-3024x4032.jpg
   sizes:
-  - 000-4032x5688.jpg
-  - 000-640x903.jpg
-  thumbnail: 000-640x903.jpg
+  - 000-3024x4032.jpg
+  - 000-640x853.jpg
+  thumbnail: 000-640x853.jpg
 - filename: 001
   original: 001-2244x3168.jpg
   sizes:
