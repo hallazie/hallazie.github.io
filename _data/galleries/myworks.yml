@@ -204,6 +204,12 @@ pictures:
   - 033-4032x3024.jpg
   - 033-640x480.jpg
   thumbnail: 033-640x480.jpg
+- filename: 034
+  original: 034-2753x3670.jpg
+  sizes:
+  - 034-2753x3670.jpg
+  - 034-640x853.jpg
+  thumbnail: 034-640x853.jpg
 - filename: 035
   original: 035-2736x3648.jpg
   sizes:
